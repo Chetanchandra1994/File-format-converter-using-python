@@ -1,4 +1,4 @@
-# Project 1 - File Format Converter
+# File Format Converter - Automating the conversion of multiple CSV files into JSON format using python
 
 
 ## Overview
