@@ -89,6 +89,8 @@ schemas = json.load(open('data/retail_db/schemas.json'))
 schemas.keys()
 ```
 
+## Output:
+
 ## Overview of the Code Structure:
 The code is designed to convert multiple CSV files into JSON format using predefined schemas. Here's what each function and part of the code does:
 1. get_column_names Function:
