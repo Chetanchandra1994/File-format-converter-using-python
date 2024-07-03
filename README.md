@@ -91,7 +91,15 @@ schemas.keys()
 
 ## Output:
 
-![File_Format_Converter](https://github.com/Chetanchandra1994/Project-1---File-Format-Converter/assets/71788058/563dabcb-1412-45cb-8470-b35ac609b02e)
+
+![import](https://github.com/Chetanchandra1994/Project-1---File-Format-Converter/assets/71788058/0780b24b-7993-43c3-a3a1-14e1406a791a)
+
+
+![functions](https://github.com/Chetanchandra1994/Project-1---File-Format-Converter/assets/71788058/b2f827b7-7f6f-40e4-97f9-e23474e3c506)
+
+
+![output](https://github.com/Chetanchandra1994/Project-1---File-Format-Converter/assets/71788058/0696cd20-32f6-4343-ab27-0107bcce1319)
+
 
 
 ## Overview of the Code Structure:
