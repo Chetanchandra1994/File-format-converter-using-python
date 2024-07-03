@@ -98,12 +98,12 @@ def get_column_names(schemas, ds_name, sorting_key='column_position'):
     columns = sorted(column_details, key=lambda col: col[sorting_key])
     return [col['column_name'] for col in columns]
 ```    
-•	Purpose: Retrieves column names from a schema based on the dataset name (ds_name).
-•	Parameters:
+- Purpose: Retrieves column names from a schema based on the dataset name (ds_name).
+- Parameters:
 o	schemas: A dictionary containing schemas loaded from schemas.json.
 o	ds_name: Name of the dataset for which column names are retrieved.
 o	sorting_key: Optional key to specify sorting criteria (default is 'column_position').
-•	Explanation:
+- Explanation:
 o	schemas[ds_name]: Accesses the schema details for the dataset specified by ds_name.
 o	sorted(column_details, key=lambda col: col[sorting_key]): Sorts the columns based on column_position (or another specified key).
 o	Returns a list of column names extracted from the sorted schema details.
@@ -118,11 +118,11 @@ def read_csv(file, schemas):
     df = pd.read_csv(file, names=columns)
     return df
   ```  
-•	Purpose: Reads a CSV file into a pandas DataFrame using column names from the schema.
-•	Parameters:
+- Purpose: Reads a CSV file into a pandas DataFrame using column names from the schema.
+- Parameters:
 o	file: File path of the CSV file to read.
 o	schemas: Dictionary containing schemas loaded from schemas.json.
-•	Explanation:
+- Explanation:
 o	re.split('[/\\\]', file): Splits the file path into components using either / or \ as the separator.
 o	ds_name = file_path_list[-2]: Extracts the dataset name from the file path.
 o	file_name = file_path_list[-1]: Extracts the file name from the file path.
@@ -141,14 +141,14 @@ def to_json(df, tgt_base_dir, ds_name, file_name):
         lines=True
     )
  ```   
-•	Purpose: Converts a pandas DataFrame to JSON and saves it to a file.
-•	Parameters:
+- Purpose: Converts a pandas DataFrame to JSON and saves it to a file.
+- Parameters:
 o	df: Pandas DataFrame to convert to JSON.
 o	tgt_base_dir: Base directory where JSON files will be saved.
 o	ds_name: Dataset name for organizing JSON files.
 o	file_name: Name of the JSON file to be created.
 
-•	Explanation:
+- Explanation:
 o	json_file_path = f'{tgt_base_dir}/{ds_name}/{file_name}': Constructs the full path for the JSON file.
 o	os.makedirs(f'{tgt_base_dir}/{ds_name}', exist_ok=True): Creates the directory (tgt_base_dir/ds_name) if it doesn't exist.
 o	df.to_json(...): Converts DataFrame df to JSON format and saves it to json_file_path.
@@ -166,12 +166,12 @@ def file_converter(src_base_dir, tgt_base_dir, ds_name):
         file_name = re.split('[/\\\]', file)[-1]
         to_json(df, tgt_base_dir, ds_name, file_name)
 ```
-•	Purpose: Converts all CSV files in a dataset directory to JSON using specified schemas.
-•	Parameters:
+- Purpose: Converts all CSV files in a dataset directory to JSON using specified schemas.
+- Parameters:
 o	src_base_dir: Base directory where CSV files and schemas are located.
 o	tgt_base_dir: Base directory where JSON files will be saved.
 o	ds_name: Dataset name to process.
-•	Explanation:
+- Explanation:
 o	Loads schemas from schemas.json for the dataset.
 o	glob.glob(f'{src_base_dir}/{ds_name}/part-*'): Finds all CSV files (part-*) in the dataset directory.
 o	Iterates over each CSV file found (file), reads it using read_csv, and converts it to JSON using to_json.
@@ -191,7 +191,7 @@ def process_files(ds_names=None):
 -	Purpose: Orchestrates the conversion process for multiple datasets.
 -	Parameters:
 o	ds_names: Optional list of dataset names to process. If None, processes all datasets in schemas.
-•	Explanation:
+- Explanation:
 o	Loads schemas from schemas.json.
 o	If ds_names is not provided, uses all dataset names from schemas.
 o	Iterates over each dataset name (ds_name), prints a processing message, and calls file_converter to convert CSV files to JSON for each dataset.
