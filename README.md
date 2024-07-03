@@ -10,7 +10,10 @@ To improve the efficiency of our data engineering pipelines, we need to convert 
 ![Data_Model_Details](https://github.com/Chetanchandra1994/Project-1---File-Format-Converter/assets/71788058/d1d479b2-0aa2-4360-87ca-2d778d3d32eb)
 
 
-### Design
+## Design
+
+![Design](https://github.com/Chetanchandra1994/Project-1---File-Format-Converter/assets/71788058/7816574b-7d42-4a74-b8d3-cca2d1b64877)
+
  
 ### Setup Instructions
 1.	Setup the Project Using VSCode
