@@ -24,28 +24,14 @@ To improve the efficiency of our data engineering pipelines, we need to convert 
 5.	Take appropriate steps to handle the exception
 
 ### Validation Steps
-•	You should check whether the data in the files has been converted properly.
-•	Make sure the target folder has been created and populated with JSON files and confirm that the schema structure was accurately reflected from the CSV file. (Hint: Refer to schemas.json)
-•	Take the count of records in the CSV files and compare it to the number of records in the JSON files.
+1.	You should check whether the data in the files has been converted properly.
+2.	Make sure the target folder has been created and populated with JSON files and confirm that the schema structure was accurately reflected from the CSV file. (Hint: Refer to schemas.json)
+3.	Take the count of records in the CSV files and compare it to the number of records in the JSON files.
 
-1.	import pandas as pd
-2.	# ###### Read orders JSON File using PANDAS
-3.	orders_data_json= pd.read_json(
-4.	    'data/retail_db/orders_json/part-00000',
-5.	    lines=True
-6.	)
-7.	# To find count of rows
-8.	orders_data_json.count()
-9.	# ###### Read order_items JSON File using PANDAS
-10.	order_items_data_json= pd.read_json(
-11.	    'data/retail_db/order_items_json/part-00000',
-12.	    lines=True
-13.	)
-14.	# To find count of rows
-15.	order_items_data_json.count()
+
 Technologies Used
-•	Programming Language – Python
-•	Pandas – For Converting CSV to Dataframe and then Dataframe into JSON.
+-	Programming Language – Python
+-	Pandas – For Converting CSV to Dataframe and then Dataframe into JSON.
 
 
 
