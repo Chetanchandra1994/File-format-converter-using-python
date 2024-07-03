@@ -89,13 +89,15 @@ schemas = json.load(open('data/retail_db/schemas.json'))
 schemas.keys()
 ```
 
-Overview of the Code Structure:
+## Overview of the Code Structure:
 The code is designed to convert multiple CSV files into JSON format using predefined schemas. Here's what each function and part of the code does:
 1. get_column_names Function:
+ ```  
 def get_column_names(schemas, ds_name, sorting_key='column_position'):
     column_details = schemas[ds_name]
     columns = sorted(column_details, key=lambda col: col[sorting_key])
     return [col['column_name'] for col in columns]
+```    
 •	Purpose: Retrieves column names from a schema based on the dataset name (ds_name).
 •	Parameters:
 o	schemas: A dictionary containing schemas loaded from schemas.json.
@@ -105,9 +107,9 @@ o	sorting_key: Optional key to specify sorting criteria (default is 'column_posi
 o	schemas[ds_name]: Accesses the schema details for the dataset specified by ds_name.
 o	sorted(column_details, key=lambda col: col[sorting_key]): Sorts the columns based on column_position (or another specified key).
 o	Returns a list of column names extracted from the sorted schema details.
+
 2. read_csv Function:
-
-
+```
 def read_csv(file, schemas):
     file_path_list = re.split('[/\\\]', file)
     ds_name = file_path_list[-2]
@@ -115,6 +117,7 @@ def read_csv(file, schemas):
     columns = get_column_names(schemas, ds_name)
     df = pd.read_csv(file, names=columns)
     return df
+  ```  
 •	Purpose: Reads a CSV file into a pandas DataFrame using column names from the schema.
 •	Parameters:
 o	file: File path of the CSV file to read.
@@ -125,9 +128,10 @@ o	ds_name = file_path_list[-2]: Extracts the dataset name from the file path.
 o	file_name = file_path_list[-1]: Extracts the file name from the file path.
 o	columns = get_column_names(schemas, ds_name): Retrieves column names for the dataset using get_column_names function.
 o	pd.read_csv(file, names=columns): Reads the CSV file into a DataFrame (df) using the retrieved column names.
+
+
 3. to_json Function:
-
-
+```
 def to_json(df, tgt_base_dir, ds_name, file_name):
     json_file_path = f'{tgt_base_dir}/{ds_name}/{file_name}'
     os.makedirs(f'{tgt_base_dir}/{ds_name}', exist_ok=True)
@@ -136,6 +140,7 @@ def to_json(df, tgt_base_dir, ds_name, file_name):
         orient='records',
         lines=True
     )
+ ```   
 •	Purpose: Converts a pandas DataFrame to JSON and saves it to a file.
 •	Parameters:
 o	df: Pandas DataFrame to convert to JSON.
