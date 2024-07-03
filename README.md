@@ -154,9 +154,9 @@ o	os.makedirs(f'{tgt_base_dir}/{ds_name}', exist_ok=True): Creates the directory
 o	df.to_json(...): Converts DataFrame df to JSON format and saves it to json_file_path.
 	orient='records': Each DataFrame row is saved as a separate JSON object.
 	lines=True: JSON objects are written as lines in the file.
+
 4. file_converter Function:
-
-
+```
 def file_converter(src_base_dir, tgt_base_dir, ds_name):
     schemas = json.load(open(f'{src_base_dir}/schemas.json'))
     files = glob.glob(f'{src_base_dir}/{ds_name}/part-*')
@@ -165,6 +165,7 @@ def file_converter(src_base_dir, tgt_base_dir, ds_name):
         df = read_csv(file, schemas)
         file_name = re.split('[/\\\]', file)[-1]
         to_json(df, tgt_base_dir, ds_name, file_name)
+```
 •	Purpose: Converts all CSV files in a dataset directory to JSON using specified schemas.
 •	Parameters:
 o	src_base_dir: Base directory where CSV files and schemas are located.
@@ -174,9 +175,9 @@ o	ds_name: Dataset name to process.
 o	Loads schemas from schemas.json for the dataset.
 o	glob.glob(f'{src_base_dir}/{ds_name}/part-*'): Finds all CSV files (part-*) in the dataset directory.
 o	Iterates over each CSV file found (file), reads it using read_csv, and converts it to JSON using to_json.
+
 5. process_files Function:
-
-
+```
 def process_files(ds_names=None):
     src_base_dir = 'data/retail_db'
     tgt_base_dir = 'data/retail_db_json'
@@ -186,6 +187,7 @@ def process_files(ds_names=None):
     for ds_name in ds_names:
         print(f'Processing {ds_name}')
         file_converter(src_base_dir, tgt_base_dir, ds_name)
+```
 •	Purpose: Orchestrates the conversion process for multiple datasets.
 •	Parameters:
 o	ds_names: Optional list of dataset names to process. If None, processes all datasets in schemas.
@@ -193,6 +195,7 @@ o	ds_names: Optional list of dataset names to process. If None, processes all da
 o	Loads schemas from schemas.json.
 o	If ds_names is not provided, uses all dataset names from schemas.
 o	Iterates over each dataset name (ds_name), prints a processing message, and calls file_converter to convert CSV files to JSON for each dataset.
-Summary:
+
+## Summary:
 The code provided automates the conversion of multiple CSV files into JSON format based on predefined schemas (schemas.json). It handles file reading, schema-based column naming, conversion to JSON, and directory creation for output files. The process_files function serves as the entry point, orchestrating the conversion process for all datasets defined in schemas.json.
 
