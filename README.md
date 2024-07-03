@@ -7,7 +7,9 @@ The objective of this project is to develop solutions based on the design provid
 To improve the efficiency of our data engineering pipelines, we need to convert these CSV files into JSON files, since JSON is better to use in downstream applications than CSV files. The scope of this project involves converting CSV files into JSON files.
 
 ## Data Model Details
-### 
+![Data_Model_Details](https://github.com/Chetanchandra1994/Project-1---File-Format-Converter/assets/71788058/d1d479b2-0aa2-4360-87ca-2d778d3d32eb)
+
+
 ### Design
  
 ### Setup Instructions
