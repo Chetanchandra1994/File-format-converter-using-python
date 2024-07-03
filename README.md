@@ -188,8 +188,8 @@ def process_files(ds_names=None):
         print(f'Processing {ds_name}')
         file_converter(src_base_dir, tgt_base_dir, ds_name)
 ```
-•	Purpose: Orchestrates the conversion process for multiple datasets.
-•	Parameters:
+-	Purpose: Orchestrates the conversion process for multiple datasets.
+-	Parameters:
 o	ds_names: Optional list of dataset names to process. If None, processes all datasets in schemas.
 •	Explanation:
 o	Loads schemas from schemas.json.
@@ -197,5 +197,5 @@ o	If ds_names is not provided, uses all dataset names from schemas.
 o	Iterates over each dataset name (ds_name), prints a processing message, and calls file_converter to convert CSV files to JSON for each dataset.
 
 ## Summary:
-The code provided automates the conversion of multiple CSV files into JSON format based on predefined schemas (schemas.json). It handles file reading, schema-based column naming, conversion to JSON, and directory creation for output files. The process_files function serves as the entry point, orchestrating the conversion process for all datasets defined in schemas.json.
+The above steps automates the conversion of multiple CSV files into JSON format based on predefined schemas (schemas.json). It handles file reading, schema-based column naming, conversion to JSON, and directory creation for output files. The process_files function serves as the entry point, orchestrating the conversion process for all datasets defined in schemas.json.
 
