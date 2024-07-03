@@ -33,7 +33,7 @@ Technologies Used
 -	Programming Language – Python
 -	Pandas – For Converting CSV to Dataframe and then Dataframe into JSON.
 
-
+```
 
 import glob
 import os
@@ -87,7 +87,7 @@ process_files()
 schemas = json.load(open('data/retail_db/schemas.json'))
 
 schemas.keys()
-
+```
 
 Overview of the Code Structure:
 The code is designed to convert multiple CSV files into JSON format using predefined schemas. Here's what each function and part of the code does:
