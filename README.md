@@ -100,13 +100,13 @@ def get_column_names(schemas, ds_name, sorting_key='column_position'):
 ```    
 - Purpose: Retrieves column names from a schema based on the dataset name (ds_name).
 - Parameters:
-o	schemas: A dictionary containing schemas loaded from schemas.json.
-o	ds_name: Name of the dataset for which column names are retrieved.
-o	sorting_key: Optional key to specify sorting criteria (default is 'column_position').
+  schemas: A dictionary containing schemas loaded from schemas.json.
+  ds_name: Name of the dataset for which column names are retrieved.
+  sorting_key: Optional key to specify sorting criteria (default is 'column_position').
 - Explanation:
-o	schemas[ds_name]: Accesses the schema details for the dataset specified by ds_name.
-o	sorted(column_details, key=lambda col: col[sorting_key]): Sorts the columns based on column_position (or another specified key).
-o	Returns a list of column names extracted from the sorted schema details.
+  schemas[ds_name]: Accesses the schema details for the dataset specified by ds_name.
+  sorted(column_details, key=lambda col: col[sorting_key]): Sorts the columns based on column_position (or another specified key).
+  Returns a list of column names extracted from the sorted schema details.
 
 2. read_csv Function:
 ```
